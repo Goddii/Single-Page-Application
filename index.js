@@ -1,18 +1,20 @@
 const form = document.getElementById('search-form')
 
+
+// add event listener to the form submit event
 form.addEventListener('submit', function(event){
     event.preventDefault()
 
     const word = document.getElementById('word-input').value.trim();
     if(word){
-        lookUpWord(word)
+        searchUpWord(word)
     }
 })
 
 
 // fetch api with async/await
 
-async function lookUpWord(word){
+async function searchUpWord(word){
     //show loading state
     const loading = document.getElementById('loading');
     const placeholder = document.getElementById('placeholder-text');
@@ -65,7 +67,7 @@ function displayResults(data, word) {
         <div class="phonetic mb-3">${phonetic}</div>
     `;
  
-    // Loop through meanings (noun, verb, adjective, etc.)
+    // Loop through meanings (noun, verb, adjective,)
     entry.meanings.forEach(function(meaning) {
         html += `<span class="part-of-speech">${meaning.partOfSpeech}</span>`;
  
@@ -90,10 +92,10 @@ function displayResults(data, word) {
         html += '<hr>';
     });
  
-    // CONCEPT 3: Inject the built HTML string into the page
+    // Inject the built HTML string into the page
     resultContent.innerHTML = html;
  
-    // CONCEPT 3 (Bonus): Dynamically update CSS using JavaScript
+    // Dynamically update CSS using JavaScript
     resultBox.classList.add('has-result');
 }
 
@@ -111,7 +113,7 @@ function displayError(message, word) {
         </div>
     `;
  
-    // CONCEPT 3: Dynamically change the box style to signal an error
+    // Dynamically change the box style to signal an error
     resultBox.classList.add('has-error');
 }
 
