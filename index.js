@@ -84,7 +84,7 @@ function displayResults(data, word) {
         if (meaning.synonyms && meaning.synonyms.length > 0) {
             html += `<div class="mb-3"><strong>Synonyms: </strong>`;
             meaning.synonyms.slice(0, 5).forEach(function(syn) {
-                html += `<span class="synonym-badge">${syn}</span>`;
+                html += `<span class="synonym-badge">  ${syn}   </span>`;
             });
             html += `</div>`;
         }
